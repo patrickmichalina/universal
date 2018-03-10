@@ -1,12 +1,22 @@
-load("//tools:defaults.bzl", "ts_library", "ng_module", "ng_package")
+load(
+    "//tools:defaults.bzl",
+    "ts_library",
+    # "ng_module",
+    "ng_package",
+)
+
+package(default_visibility = ["//visibility:public"])
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "jasmine_node_test")
+load("@angular//:index.bzl", "ng_module")
 
 ng_module(
-    name = "common_module",
+    name = "common",
     srcs = glob([
         "*.ts",
         "src/**/*.ts",
     ]),
+    tsconfig = "//:tsconfig.json",
     deps = [],
 )
 
@@ -14,7 +24,7 @@ ng_package(
     name = "@nguniversal/common",
     srcs = [":package.json"],
     entry_point = "index.js",
-    deps = [":common_module"],
+    deps = [":common"],
 )
 
 ts_library(
@@ -24,7 +34,7 @@ ts_library(
         "spec/**/*.spec.ts",
     ]),
     deps = [
-        ":common_module",
+        ":common",
     ],
 )
 

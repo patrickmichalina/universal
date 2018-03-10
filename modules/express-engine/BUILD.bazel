@@ -1,20 +1,37 @@
-load("//tools:defaults.bzl", "ts_library", "ng_module", "ng_package")
+load(
+    "//tools:defaults.bzl",
+    "ts_library",
+    # "ng_module",
+    "ng_package",
+)
+
+package(default_visibility = ["//visibility:public"])
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "jasmine_node_test")
+load("@angular//:index.bzl", "ng_module")
 
 ng_module(
-    name = "express-engine_module",
+    name = "express-engine",
     srcs = glob([
         "*.ts",
         "src/**/*.ts",
     ]),
-    deps = ["@rxjs"],
+    tsconfig = "//:tsconfig.json",
+    deps = [
+        "//modules/express-engine/tokens",
+        "@rxjs",
+    ],
 )
 
 ng_package(
     name = "@nguniversal/express-engine",
-    srcs = [":package.json"],
+    srcs = [
+        ":package.json",
+        "//modules/express-engine/tokens:package.json",
+    ],
     entry_point = "index.js",
-    deps = [":express-engine_module"],
+    secondary_entry_points = ["tokens"],
+    deps = [":express-engine"],
 )
 
 ts_library(
@@ -24,7 +41,7 @@ ts_library(
         "spec/**/*.spec.ts",
     ]),
     deps = [
-        ":express-engine_module",
+        ":express-engine",
     ],
 )
 

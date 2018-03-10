@@ -1,5 +1,14 @@
-load("//tools:defaults.bzl", "ts_library", "ng_module", "ng_package")
+load(
+    "//tools:defaults.bzl",
+    "ts_library",
+    # "ng_module",
+    "ng_package",
+)
+
+package(default_visibility = ["//visibility:public"])
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "jasmine_node_test")
+load("@angular//:index.bzl", "ng_module")
 
 ng_module(
     name = "module-map-ngfactory-loader_module",
@@ -7,6 +16,7 @@ ng_module(
         "*.ts",
         "src/**/*.ts",
     ]),
+    tsconfig = "//:tsconfig.json",
     deps = [],
 )
 
