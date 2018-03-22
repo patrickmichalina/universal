@@ -1,7 +1,7 @@
 load(
     "//tools:defaults.bzl",
     "ts_library",
-    # "ng_module",
+    "ng_module",
     "ng_package",
 )
 
@@ -19,18 +19,16 @@ ng_module(
     tsconfig = "//:tsconfig.json",
     deps = [
         "//modules/hapi-engine/tokens",
-        "@rxjs",
     ],
 )
 
 ng_package(
-    name = "@nguniversal/hapi-engine",
+    name = "npm_package",
     srcs = [
         ":package.json",
         "//modules/hapi-engine/tokens:package.json",
     ],
     entry_point = "index.js",
-    secondary_entry_points = ["tokens"],
     deps = [":hapi-engine"],
 )
 

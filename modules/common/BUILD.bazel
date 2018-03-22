@@ -1,7 +1,7 @@
 load(
     "//tools:defaults.bzl",
     "ts_library",
-    # "ng_module",
+    "ng_module",
     "ng_package",
 )
 
@@ -21,7 +21,7 @@ ng_module(
 )
 
 ng_package(
-    name = "@nguniversal/common",
+    name = "npm_package",
     srcs = [":package.json"],
     entry_point = "index.js",
     deps = [":common"],
