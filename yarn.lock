@@ -8,9 +8,9 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/bazel@github:angular/bazel-builds#eae7447cf46671762c7e07a249bd13b58999c820":
-  version "6.0.0-rc.0-f461f43"
-  resolved "https://codeload.github.com/angular/bazel-builds/tar.gz/eae7447cf46671762c7e07a249bd13b58999c820"
+"@angular/bazel@6.0.0-rc.0":
+  version "6.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@angular/bazel/-/bazel-6.0.0-rc.0.tgz#a729be982b42b2d189de143f6ad23d186dfaeb83"
   dependencies:
     "@bazel/typescript" "^0.11.1"
     "@types/node" "6.0.84"

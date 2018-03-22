@@ -75,7 +75,7 @@
   },
   "devDependencies": {
     "@angular/animations": "6.0.0-rc.0",
-    "@angular/bazel": "github:angular/bazel-builds#eae7447cf46671762c7e07a249bd13b58999c820",
+    "@angular/bazel": "6.0.0-rc.0",
     "@angular/common": "6.0.0-rc.0",
     "@angular/compiler": "6.0.0-rc.0",
     "@angular/compiler-cli": "6.0.0-rc.0",
